@@ -8,6 +8,9 @@
     urlcolor=cyan,
 }
 
+% for including notebooks
+\usepackage{pdfpages}
+
 \usepackage{fancyhdr}
 \usepackage{extramarks}
 \usepackage{amsmath}
@@ -93,10 +96,14 @@
 
 \begin{document}
 
-
 \maketitle
 
 \pagebreak
+
+\tableofcontents
+
+\pagebreak
+
 \section{Introduction}
     I created a GitHub repository \href{https://github.com/artembakhanov/ControlTheoryHomework}{here}.
     All the problems are solved by me, Artem Bakhanov, a student of Innopolis University. My variant is \textbf{j}.
@@ -125,11 +132,43 @@
     \end{figure}
     
     \subsection{Simulink (with TF blocks)}
+    \begin{figure}[ht]
+    	\centering
+    	\includegraphics[width=0.9\textwidth]{images/schema2B_j.png}
+    	\caption{Simulink schema of the equation (TF)}
+    	\label{fig:simulink2b}
+    \end{figure}
+    
+    \begin{figure}[ht]
+    	\centering
+    	\includegraphics[width=0.9\textwidth]{images/plot2B_j.png}
+    	\caption{Simulink schema of the equation (TF)}
+    	\label{fig:plot2b}
+    \end{figure}
+    
+    This subsection is about Transforming the given equation to TF model.
+    \begin{equation}
+        4x'' - 4x' + 5t - 2x = 3, \quad x'(0) = 0, \ x(0) = -3
+    \end{equation}
+    
+    Since it is impossible (at least with those tools we were given) to work with initial conditions I worked only with zero initial conditions. Let $u = 3 - 5t$:
+    \begin{equation}
+        4x'' - 4x' - 2x = u
+    \end{equation}
+    
+    It is easily transformed to TF:
+    \begin{equation}    
+        4p^2 X - 4pX - 2X = u
+    \end{equation}
+    
+   	\begin{equation}
+        W(p) = \frac{1}{4p^2 - 4p - 2}
+    \end{equation}
     
     \subsection{Matlab solution of the ODE}
     You can also find this code in \href{run:task2c\_j.m}{task2c\_j.m} file.
     \lstinputlisting[caption=Solution of the ODE in Matlab, label={lst:listing1}, language=Matlab]{task2c_j.m}
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[width=0.9\textwidth]{images/solution2c_j.png}
         \caption{The plot of the Matlab solution}
@@ -297,7 +336,9 @@
     
 \section{ODE2SS (Python)}
     The code is available in the \href{run:problem5.ipynb}{problem5.ipynb} file.
-    You need to have Jupyter Notebook installed on your computer to run the notebook, NumPy library is also required.
+    You need to have Jupyter Notebook installed on your computer to run the notebook, NumPy library is also required. Also you can read the code below.
+    \includepdf[pages=-,pagecommand={},width=\textwidth]{problem5.pdf}
 \section{ODEs and SSs (Python)}
-    
+	\includegraphics[page=1,width=\textwidth]{problem6.pdf}
+    \includepdf[pages=2-,pagecommand={},width=\textwidth]{problem6.pdf}
 \end{document}
