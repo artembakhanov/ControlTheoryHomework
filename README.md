@@ -33,6 +33,8 @@ Task 5 - [code](problem5.ipynb)
 
 For running all the Python code you need to install Jupyter Notebook on your computer.
 
+I used Python 3.7.3.
+
 NumPy library should be installed too.
 
 If you do not have Jupyter Notebook and you do not want to install it then you can upload the notebooks to [Google Colab](https://colab.research.google.com/). 
