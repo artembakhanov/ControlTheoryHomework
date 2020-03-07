@@ -76,8 +76,8 @@
 
 \setlength\parindent{0pt}
 
-\newcommand{\hmwkTitle}{Assignment \ 1}
-\newcommand{\hmwkDueDate}{February 14, 2020}
+\newcommand{\hmwkTitle}{Assignment \ 2}
+\newcommand{\hmwkDueDate}{March 9, 2020}
 \newcommand{\hmwkClass}{Control Theory}
 \newcommand{\hmwkClassInstructor}{Mike Ivanov}
 \newcommand{\hmwkAuthorName}{\textbf{Artem Bakhanov (B18-03)}}
@@ -145,7 +145,7 @@ Two blocks in the middle can be substituted with one with value $T= \frac{W_2}{1
      \caption{Simulink Schemas}
 \end{figure}
 Note that I change clock input to step block with step time 1 for step response; Pulse Generator with amplitude = 1000000000 (almost infinity), period = 100 sec, and pulse width 0.01 sec (almost small) for impulse response; Sin Wave block for frequency response. As you can see the systems are identical. It means that all calculations was correct.
-\begin{figure}[ht]
+\begin{figure}[H]
    	 \centering
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
@@ -162,7 +162,7 @@ Note that I change clock input to step block with step time 1 for step response;
      \end{subfigure}
      \caption{Step responses}
 \end{figure}
-\begin{figure}[ht]
+\begin{figure}[H]
    	 \centering
      \begin{subfigure}[b]{0.45\textwidth}
          \centering
@@ -201,11 +201,17 @@ I chose step input.
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{sources/image2_10.png}
-        \caption{Initial schema}
+        \caption{Bode plot}
         \label{fig:bode1}
 \end{figure}
-The system is not stable since phase margin is less than gain margin.
-
+The system is stable since both phase margin and gain margin are positive.
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{sources/image2_11.png}
+        \caption{Pole-Zero plot}
+        \label{fig:bode1}
+\end{figure}
+Pole-Zero plot just confirms that the system is stable. All the poles are situated in the left half plane.
 \section{TTF}
 \begin{figure}[H]
         \centering
@@ -242,6 +248,36 @@ Using the same approach as I have used in the previous task I got:
 	T_2 &= \frac{6s^2 - 13s - 68}{s^2 - 3s - 10}
 \end{align}
 The first one is transfer function for first input ($u_1$), the second one is for the second input ($u_2$).
-Note that I used matrix approach that is general for any number of inputs and outputs. So, as a result we get a vector with all the transfer function we need.
+Note that I used matrix approach that is general for any number of inputs and outputs. So, as a result we get a vector with all the transfer function we need. 
+
+\section{TF System}
+In this task for the first part I assume that $f = 0$ and ignore this input.
+For the second part I ignore $x$ and assume that it is equal to 0.
+As you can see, transfer function for x:
+\begin{equation}
+	T_x = ((W_5 W_6 + W_3) \cdot W_7 W_4 + W_1 + W_8 W_5) \cdot W_2
+\end{equation}
+for $f$:
+\begin{equation}
+	T_f = (W_6 W_7 W_4 + W_8) \cdot W_2
+\end{equation}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{sources/image6_1.png}
+        \caption{Simplifying the system for $x$}
+        \label{fig:tf1}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{sources/image6_2.png}
+        \caption{Simplifying the system for $f$}
+        \label{fig:tf2}
+\end{figure}
+Total transfer function is: 
+\begin{equation}
+	T = T_x x + T_f f = ((W_5 W_6 + W_3) \cdot W_7 W_4 + W_1 + W_8 W_5) \cdot W_2 \cdot x + (W_6 W_7 W_4 + W_8) \cdot W_2 \cdot f
+\end{equation}
 \end{document}
 
